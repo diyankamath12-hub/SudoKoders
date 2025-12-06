@@ -6,3 +6,15 @@ def is_present_inbox(grid, row, col, num):
 			if grid[row + i][col + j] == num:
 				return False
 	return True
+
+def is_present_inrow(grid,row,num):
+	for j in range(9):
+		if grid[row][j]==num:
+			return False
+	return True
+
+def is_present_incol(grid,col,num):
+	for j in range(9):
+		if grid[i][col]==num:
+			return False
+	return True
