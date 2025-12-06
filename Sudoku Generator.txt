@@ -56,6 +56,59 @@ def generate_sudoku():
 
 	fill_grid(grid, 0, 0)
 	return grid
+def remove_cells(grid, count):
+    removed = 0
+    while removed < count:
+        r = random.randint(0, 8)
+        c = random.randint(0, 8)
+        if grid[r][c] != 0:
+            grid[r][c] = 0
+            removed += 1
+    return grid
+
+def print_grid(grid):
+    for row in grid:
+        print(row)
+
+def user_move(grid, row, col, num):
+    if grid[row][col] != 0:
+        return False
+    if is_Safe(grid, row, col, num):
+        grid[row][col] = num
+        return True
+    return False 
+
+
+sud = generate_sudoku()
+puzzle = remove_cells([rows[:] for row in sud], 40)
+
+print("Generated puzzle:")
+print_grid(puzzle)
+
+
+while True:
+	print("\nEnter your move (type -1 in row to quit):")
+
+
+	while True:
+		r = int(input("Row (0–8): "))
+		if r == -1:
+			break   
+
+		c = int(input("Column (0–8): "))
+		n = int(input("Number (1–9): "))
+
+		if user_move(puzzle, r, c, n):
+			print("\nValid move!")
+			print("\nUpdated Puzzle:")
+			print_grid(puzzle)
+			break   
+		else:
+			print("\nInvalid move! Puzzle unchanged. Try again...")
+			print_grid(puzzle)  
+
+	if r == -1:
+		break  
 
 
 
