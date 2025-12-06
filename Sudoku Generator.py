@@ -14,7 +14,7 @@ def is_present_inrow(grid,row,num):
 	return True
 
 def is_present_incol(grid,col,num):
-	for j in range(9):
+	for i in range(9):
 		if grid[i][col]==num:
 			return False
 	return True
@@ -109,6 +109,7 @@ while True:
 
 	if r == -1:
 		break  
+
 
 
 
