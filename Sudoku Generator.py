@@ -80,7 +80,7 @@ def user_move(grid, row, col, num):
 
 
 sud = generate_sudoku()
-puzzle = remove_cells([rows[:] for row in sud], 40)
+puzzle = remove_cells([row[:] for row in sud], 40)
 
 print("Generated puzzle:")
 print_grid(puzzle)
@@ -109,6 +109,7 @@ while True:
 
 	if r == -1:
 		break  
+
 
 
 
