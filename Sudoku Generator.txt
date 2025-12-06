@@ -76,7 +76,13 @@ def user_move(grid, row, col, num):
     if is_Safe(grid, row, col, num):
         grid[row][col] = num
         return True
-    return False
+    return False 
+sud = generate_sudoku()
+puzzle = remove_cells([rows[:] for row in sud], 40)
+
+print("Generated puzzle:")
+print_grid(puzzle)
+
 
 
 
