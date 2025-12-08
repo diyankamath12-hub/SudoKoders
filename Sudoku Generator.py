@@ -93,11 +93,31 @@ while True:
 	while True:
 		r = int(input("Row (0–8): "))
 		if r == -1:
+			print("You quit the game!")
 			break  
 		if r == -2: 
 			print("Solved Sudoku:")
 			print_grid(sud)
-			break
+			
+			print("Enter your next move:")
+			print()
+			print("Enter choice 1 to generate a new puzzle:")
+			print()
+			print("Enter choice -1 to quit")
+			print()
+			
+			choice = int(input("Enter choice: "))
+			
+			if choice == 1:
+				sud = generate_sudoku()
+				puzzle = remove_cells([row[:] for row in sud], 40)
+				print("New Puzzle Generated:")
+				print_grid(puzzle)
+				continue
+			else:
+				print("You quit the game!")
+				break
+
 
 
 		c = int(input("Column (0–8): "))
@@ -114,6 +134,7 @@ while True:
 
 	if r == -1:
 		break  
+
 
 
 
