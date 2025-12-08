@@ -84,16 +84,21 @@ puzzle = remove_cells([row[:] for row in sud], 40)
 
 print("Generated puzzle:")
 print_grid(puzzle)
+print("Type -1 in row to quit and -2 in row to show the full solved puzzle.")
 
 
 while True:
-	print("\nEnter your move (type -1 in row to quit):")
-
-
+	print("\nEnter your move :")
+	
 	while True:
 		r = int(input("Row (0–8): "))
 		if r == -1:
-			break   
+			break  
+		if r == -2: 
+       		print("Solved Sudoku:")
+        	print_grid(sud)
+        	break
+
 
 		c = int(input("Column (0–8): "))
 		n = int(input("Number (1–9): "))
@@ -109,6 +114,7 @@ while True:
 
 	if r == -1:
 		break  
+
 
 
 
