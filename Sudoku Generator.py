@@ -95,9 +95,9 @@ while True:
 		if r == -1:
 			break  
 		if r == -2: 
-       		print("Solved Sudoku:")
-        	print_grid(sud)
-        	break
+			print("Solved Sudoku:")
+			print_grid(sud)
+			break
 
 
 		c = int(input("Column (0–8): "))
@@ -114,6 +114,7 @@ while True:
 
 	if r == -1:
 		break  
+
 
 
 
