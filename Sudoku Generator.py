@@ -70,7 +70,7 @@ def print_grid(grid):
     for row in grid:
         print(row)
 
-def user_move(grid, row, col, num):
+def user_move(grid,puzzle, row, col, num):
     if grid[row][col] != 0:
         return False
     if is_Safe(grid, row, col, num):
@@ -81,10 +81,13 @@ def user_move(grid, row, col, num):
 
 sud = generate_sudoku()
 puzzle = remove_cells([row[:] for row in sud], 40)
+original_puzzle = [row[:] for row in puzzle]
 
 print("Generated puzzle:")
 print_grid(puzzle)
 print("Type -1 in row to quit and -2 in row to show the full solved puzzle.")
+print("To change the value which you added ,Change it to zero and then give the desired value.")
+print()
 
 
 while True:
@@ -105,12 +108,14 @@ while True:
 			print()
 			print("Enter choice -1 to quit")
 			print()
+			print("To change the value which you added ,Change it to zero and then give the desired value.")
 			
 			choice = int(input("Enter choice: "))
 			
 			if choice == 1:
 				sud = generate_sudoku()
 				puzzle = remove_cells([row[:] for row in sud], 40)
+				original_puzzle = [row[:] for row in puzzle]
 				print("New Puzzle Generated:")
 				print_grid(puzzle)
 				continue
@@ -123,7 +128,7 @@ while True:
 		c = int(input("Column (0–8): "))
 		n = int(input("Number (1–9): "))
 
-		if user_move(puzzle, r, c, n):
+		if user_move(puzzle,original_puzzle, r, c, n):
 			print("\nValid move!")
 			print("\nUpdated Puzzle:")
 			print_grid(puzzle)
@@ -134,6 +139,7 @@ while True:
 
 	if r == -1:
 		break  
+
 
 
 
