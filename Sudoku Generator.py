@@ -89,7 +89,8 @@ original_puzzle = [row[:] for row in puzzle]
 print("Generated puzzle:")
 print_grid(puzzle)
 print("Type -1 in row to quit and -2 in row to show the full solved puzzle.")
-print("To change the value which you added ,go to the specific cell and then give the desired value.")
+print()
+print("To change the value which you added ,go to the specific cell and then give the desired value or set it to zero to erase the value.")
 print()
 
 
@@ -142,6 +143,7 @@ while True:
 
 	if r == -1:
 		break  
+
 
 
 
