@@ -70,7 +70,12 @@ def print_grid(grid):
     for row in grid:
         print(row)
 
-def user_move(grid,puzzle, row, col, num):
+def user_move(grid,original, row, col, num):
+	if original[row][col]!=0:
+		return False
+	if num==0:
+		grid[row][col]=0
+		return True
     if grid[row][col] != 0:
         return False
     if is_Safe(grid, row, col, num):
@@ -139,6 +144,7 @@ while True:
 
 	if r == -1:
 		break  
+
 
 
 
