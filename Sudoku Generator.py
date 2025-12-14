@@ -76,12 +76,10 @@ def user_move(grid,original, row, col, num):
 	if num==0:
 		grid[row][col]=0
 		return True
-    if grid[row][col] != 0:
-        return False
-    if is_Safe(grid, row, col, num):
-        grid[row][col] = num
-        return True
-    return False 
+	if is_Safe(grid, row, col, num):
+		grid[row][col] = num
+		return True
+	return False 
 
 
 sud = generate_sudoku()
@@ -144,6 +142,7 @@ while True:
 
 	if r == -1:
 		break  
+
 
 
 
