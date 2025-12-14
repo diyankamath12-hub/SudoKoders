@@ -93,7 +93,7 @@ print()
 print("To change the value which you added ,go to the specific cell and then give the desired value or set it to zero to erase the value.")
 print()
 
-
+quit_game=False
 while True:
 	print("\nEnter your move :")
 	
@@ -101,6 +101,7 @@ while True:
 		r = int(input("Row (0–8): "))
 		if r == -1:
 			print("You quit the game!")
+			quit_game = True
 			break  
 		if r == -2: 
 			print("Solved Sudoku:")
@@ -125,6 +126,7 @@ while True:
 				continue
 			else:
 				print("You quit the game!")
+				quit_game = True
 				break
 
 
@@ -141,8 +143,9 @@ while True:
 			print("\nInvalid move! Puzzle unchanged. Try again...")
 			print_grid(puzzle)  
 
-	if r == -1:
+	if quit_game:
 		break  
+
 
 
 
