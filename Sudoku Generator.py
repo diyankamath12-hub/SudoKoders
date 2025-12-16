@@ -99,6 +99,9 @@ while True:
 	
 	while True:
 		r = int(input("Row (0–8): "))
+		while (r<0 and( r!=-1 and r!=-2)) or r>=9 :
+			print("OUT OF RANGE")
+			r = int(input("Row (0–8): "))
 		if r == -1:
 			print("You quit the game!")
 			quit_game = True
@@ -132,7 +135,13 @@ while True:
 
 
 		c = int(input("Column (0–8): "))
+		while c<0 or c>=9  :
+			print("OUT OF RANGE")
+			c = int(input("Column (0–8): "))
 		n = int(input("Number (1–9): "))
+		while n<1 or n>9:
+			print("OUT OF RANGE")
+			n = int(input("Number (1–9): "))
 
 		if user_move(puzzle,original_puzzle, r, c, n):
 			print("\nValid move!")
@@ -145,6 +154,7 @@ while True:
 
 	if quit_game:
 		break  
+
 
 
 
